@@ -27,6 +27,15 @@ function mario() {
   ////////////// DO NOT MODIFY
 
   // WRITE YOUR EXERCISE 1 CODE HERE
+  height = prompt("Please enter an integer between 1 and 23.");
+  while (height > 23 || height < 1 || height % 1 !=0) {
+    height = prompt("What are you doing? I already told you: INTEGER BETWEEN 1 AND 23.");
+  }
+
+  while () {
+
+  }
+
 
   ////////////////////////// DO NOT MODIFY
   check('mario', height); // DO NOT MODIFY
