@@ -33,7 +33,7 @@ function mario() {
     height = prompt("Are you stupid? Enter an integer between 1 and 23.")
   }
   let amount = height;
-  let p = document.getElementById("mario");
+  let p = document.getElementById("mario-easy-output");
   if (amount == 1) {
     p.innerHTML = "#" + "<br/>";
   }else{
