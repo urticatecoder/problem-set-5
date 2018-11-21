@@ -27,13 +27,27 @@ function mario() {
   ////////////// DO NOT MODIFY
 
   // WRITE YOUR EXERCISE 1 CODE HERE
-  height = prompt("Please enter an integer between 1 and 23.");
-  while (height > 23 || height < 1 || height % 1 !=0) {
-    height = prompt("What are you doing? I already told you: INTEGER BETWEEN 1 AND 23.");
+  document.getElementById("mario").style.fontFamily = "Courier New";
+  let height = prompt("Please enter an integer between 1 and 23.");
+  while (height > 23 || height < 1 || height % 1 != 0) {
+    height = prompt("Are you stupid? Enter an integer between 1 and 23.")
   }
-
-  while () {
-
+  let amount = height;
+  let p = document.getElementById("mario");
+  if (amount == 1) {
+    p.innerHTML = "#" + "<br/>";
+  }else{
+    var space = ""
+    let display = "#"
+    while (amount > 1) {
+      for (let i = 0; i < amount-2; i++) {
+        space = space + "\xa0"
+      }
+      p.innerHTML += space + display + "#" + "<br/>"
+      display = display + "#";
+      amount = amount - 1;
+      space = "";
+    }
   }
 
 
