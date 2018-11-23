@@ -85,7 +85,25 @@ function marioAgain() {
   ////////////// DO NOT MODIFY
 
   // WRITE YOUR EXERCISE 2 CODE HERE
-
+  document.getElementById("mario-hard-output").style.fontFamily = "monospace";
+  let height = prompt("Please enter a height from 1 to 23");
+  while (height < 1 || height > 23 || height % 1 !=0) {
+    height = prompt("Remember, your height must be an INTEGER FROM 1 TO 23!")
+  }
+  let p = document.getElementById("mario-hard-output");
+  let print;
+  let amount = height;
+    print = "##";
+    let space = "";
+    while (amount > 0) {
+      for (let i = 0; i < amount; i++) {
+        space = space + "\xa0";
+      }
+      p.innerHTML += space + print + "\xa0\xa0" + print + "<br/>";
+      print = print + "#";
+      amount = amount - 1;
+      space = ""
+    }
   //////////////////////////////// DO NOT MODIFY
   check('mario-again', height); // DO NOT MODIFY
   //////////////////////////////// DO NOT MODIFY
