@@ -27,27 +27,24 @@ function mario() {
   ////////////// DO NOT MODIFY
 
   // WRITE YOUR EXERCISE 1 CODE HERE
-  document.getElementById("mario").style.fontFamily = "Courier New";
-  let height = prompt("Please enter an integer between 1 and 23.");
-  while (height > 23 || height < 1 || height % 1 != 0) {
-    height = prompt("Are you stupid? Enter an integer between 1 and 23.")
+  document.getElementById("mario-easy-output").style.fontFamily = "monospace";
+  let p = document.getElementById("mario-easy-output");
+  p.innerHTML = "";
+  height = prompt("Please enter a height from 1 to 23");
+  while (height < 1 || height > 23 || height % 1 != 0){
+    height = prompt("Please enter a height from 1 to 23");
   }
   let amount = height;
-  let p = document.getElementById("mario-easy-output");
-  if (amount == 1) {
-    p.innerHTML = "#" + "<br/>";
-  }else{
-    var space = ""
-    let display = "#"
-    while (amount > 1) {
-      for (let i = 0; i < amount-2; i++) {
-        space = space + "\xa0"
-      }
-      p.innerHTML += space + display + "#" + "<br/>"
-      display = display + "#";
-      amount = amount - 1;
-      space = "";
+  let print = "##";
+  let space = "";
+  while (amount > 0){
+    for(let i = 0; i < amount - 1; i++){
+      space = space + "\xa0";
     }
+    p.innerHTML += space + print + "<br/>";
+    print = print + "#";
+    amount = amount - 1;
+    space = "";
   }
 
 
@@ -85,7 +82,25 @@ function marioAgain() {
   ////////////// DO NOT MODIFY
 
   // WRITE YOUR EXERCISE 2 CODE HERE
-
+  document.getElementById("mario-hard-output").style.fontFamily = "monospace";
+  let p = document.getElementById("mario-hard-output");
+  p.innerHTML = "";
+  height = prompt("Please enter a height from 1 to 23");
+  while (height < 1 || height > 23 || height % 1 != 0){
+    height = prompt("Please enter a height from 1 to 23");
+  }
+  let amount = height;
+  let print = "##";
+  let space = "";
+  while (amount > 0){
+    for(let i = 0; i < amount - 1; i++){
+      space = space + "\xa0";
+    }
+    p.innerHTML += space + print + "\xa0\xa0" + print + "<br/>";
+    print = print + "#";
+    amount = amount - 1;
+    space = "";
+  }
   //////////////////////////////// DO NOT MODIFY
   check('mario-again', height); // DO NOT MODIFY
   //////////////////////////////// DO NOT MODIFY
