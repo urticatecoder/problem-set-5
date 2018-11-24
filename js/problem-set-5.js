@@ -192,7 +192,31 @@ function credit() {
 function guess() {
 
   // WRITE YOUR EXERCISE 4 CODE HERE
-
+  let randNum = Math.floor((Math.random() * 1000) + 1);
+  let p = document.getElementById("guess-output");
+  let response = prompt("Please type in your guess. Your guess must be an integer from 1 to 1000.");
+  let i = 0;
+  if(response > 1000 || response < 1 || response % 1 != 0){
+    response = prompt("Please type in your guess. Your guess must be an integer from 1 to 1000.")
+  }else{
+    i++
+  }
+  while (response != randNum) {
+    if (response > 1000 || response < 1 || response % 1 != 0){
+      response = prompt("Please type in your guess. Your guess must be an integer from 1 to 1000.");
+    }else{
+      if (response > randNum) {
+        response = prompt("Sorry, that number's too high! Please type in your new guess. Your guess must be an integer from 1 to 1000");
+        i++;
+      }else if (response < randNum){
+        response = prompt("Sorry, that number's too low! Please type in your new guess. Your guess must be an integer from 1 to 1000");
+        i++;
+      }else if (response == randNum){
+        i++;
+      }
+    }
+  }
+  p.innerHTML = "That's correct! The random number was " + randNum + ", and you got it on your " + i + "th guess.";
   ////////////////// DO NOT MODIFY
   check('guess'); // DO NOT MODIFY
   ////////////////// DO NOT MODIFY
@@ -227,7 +251,25 @@ function hurricane() {
   ///////////////// DO NOT MODIFY
   let windspeed; // DO NOT MODIFY
   ///////////////// DO NOT MODIFY
-
+  let p = document.getElementById("hurricane-output");
+  while (windspeed < 0 || windspeed % 1 !=0){
+    windspeed = prompt("Enter a hurricane windspeed to see what category it's in.")
+  }
+  if(windspeed >= 157){
+    p.innerHTML = "That's a category 5!"
+  }else if (windspeed >= 130 && windspeed <= 156){
+    p.innerHTML = "That's a category 4."
+  }else if (windspeed >= 111 && windspeed <= 129){
+    p.innerHTML = "That's a category 3."
+  }else if (windspeed >= 96 && windspeed <= 110){
+    p.innerHTML = "That's a category 2."
+  }else if (windspeed >= 74 && windspeed <= 95){
+    p.innerHTML = "That's a category 1."
+  }else if (windspeed >= 39 && windspeed <= 73){
+    p.innerHTML = "That's a mere tropical storm."
+  }else{
+    p.innerHTML = "No hurricane here, that's just regular ol' wind."
+  }
   ///////////////////////////////// DO NOT MODIFY
   check('hurricane', windspeed); // DO NOT MODIFY
   ///////////////////////////////// DO NOT MODIFY
@@ -270,7 +312,52 @@ function gymnastics() {
    *       scores.push(firstScore);   // your variable names for your scores
    *       scores.push(secondScore);  // will likely be different than mine
    */
-
+   let score1=prompt("Please enter your first score");
+   while(score1 > 10 || score1<1 || score1 / 1 != score1){
+     score1 = prompt("Please reenter your first score. Remember, it must be from 1 to 10.")
+   }
+   let score2 = prompt("Please enter your second score");
+   while(score2 > 10 || score2 < 1 || score2 / 1 != score2){
+     score2 = prompt("Please reenter your second score. Remember, it must be from 1 to 10.")
+   }
+   let score3 = prompt("Please enter your third score");
+   while(score3 > 10 || score3 < 1 || score3 / 1 != score3){
+     score3 = prompt("Please reenter your third score. Remember, it must be from 1 to 10.")
+   }
+   let score4 = prompt("Please enter your fourth score");
+   while(score4 > 10 || score4 < 1 || score4 / 1 != score4){
+     score4 = prompt("Please reenter your fourth score. Remember, it must be from 1 to 10.")
+   }
+   let score5 = prompt("Please enter your fifth score");
+   while(score5 > 10 || score5 < 1 || score5 / 1 != score5){
+     score5 = prompt("Please reenter your fifth score. Remember, it must be from 1 to 10.")
+   }
+   let score6 = prompt("Please enter your sixth score");
+   while(score6 > 10 || score6 < 1 || score6 / 1 != score6){
+     score6 = prompt("Please reenter your sixth score. Remember, it must be from 1 to 10.")
+   }
+   scores.push(score1);
+   scores.push(score2);
+   scores.push(score3);
+   scores.push(score4);
+   scores.push(score5);
+   scores.push(score6);
+   total = Number(scores[0]) + Number(scores[1]) + Number(scores[2]) + Number(scores[3]) + Number(scores[4]) + Number(scores[5]);
+   let i = 0;
+   let maxScore = 0;
+   let minScore = 10;
+   while(i < scores.length){
+     if(scores[i] > maxScore){
+       maxScore = scores[i];
+     }
+     if(scores[i] < minScore){
+       minScore = scores[i];
+     }
+     i++;
+   }
+   let p = document.getElementById("gymnastics-output");
+   let average = (total - maxScore - minScore) / 4;
+   p.innerHTML = "discarded: " + maxScore + ", " + minScore + "<br/>" + "average: " + average;
   /////////////////////////////// DO NOT MODIFY
   check('gymnastics', scores); // DO NOT MODIFY
   /////////////////////////////// DO NOT MODIFY
