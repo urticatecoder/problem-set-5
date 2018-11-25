@@ -347,17 +347,17 @@ function gymnastics() {
    let maxScore = 0;
    let minScore = 10;
    while(i < scores.length){
-     if(scores[i] > maxScore){
+     if(Number(scores[i]) > maxScore){
        maxScore = scores[i];
      }
-     if(scores[i] < minScore){
+     if(Number(scores[i]) < minScore){
        minScore = scores[i];
      }
      i++;
    }
    let p = document.getElementById("gymnastics-output");
    let average = (total - maxScore - minScore) / 4;
-   p.innerHTML = "discarded: " + maxScore + ", " + minScore + "<br/>" + "average: " + average;
+   p.innerHTML = "discarded: " + maxScore + ", " + minScore + "<br/>" + "average: " + average.toFixed(1);
   /////////////////////////////// DO NOT MODIFY
   check('gymnastics', scores); // DO NOT MODIFY
   /////////////////////////////// DO NOT MODIFY
@@ -409,7 +409,32 @@ function reportCard() {
    *       representative of the number of tests, quizzes, and homework
    *       grades the user enters, respectively.
    */
-
+   let testGrade;
+   let quizGrade;
+   let homeworkGrade;
+   while(testGrade!=Number("-1")){
+     testGrade=Number(prompt("Please enter your test grade. Type '-1' to signify that you have no more grades to input."));
+     if(testGrade != Number("-1")){
+       tests++;
+       testTotal+=testGrade;
+     }else{}
+   }
+   while(quizGrade!=Number("-1")){
+     quizGrade=Number(prompt("Please enter your quiz grade. Type '-1' to signify that you have no more grades to input."));
+     if(quizGrade!=Number("-1")){
+       quizzes++;
+       quizTotal+=quizGrade;
+     }else{}
+   }
+   while(homeworkGrade!=Number("-1")){
+     homeworkGrade=Number(prompt("Please enter your homework grade. Type '-1' to signify that you have no more grades to input."));
+     if(homeworkGrade!=Number("-1")){
+       homeworks++;
+       homeworkTotal+=homeworkGrade;
+     }else{}
+   }
+   let p = document.getElementById("report-card-output");
+   p.innerHTML = "Tests: " + (testTotal/tests).toFixed(2) + "<br/>" + "Quizzes: " + (quizTotal/quizzes).toFixed(2) + "<br/>" + "Homework: " + (homeworkTotal/homeworks).toFixed(2);
   /////////////////////// DO NOT MODIFY
   check('report-card', // DO NOT MODIFY
     testTotal, ////////// DO NOT MODIFY
