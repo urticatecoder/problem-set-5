@@ -27,25 +27,26 @@ function mario() {
   ////////////// DO NOT MODIFY
 
   // WRITE YOUR EXERCISE 1 CODE HERE
-  document.getElementById("mario-easy-output").style.fontFamily = "monospace";
-  let p = document.getElementById("mario-easy-output");
-  p.innerHTML = "";
-  height = prompt("Please enter a height from 1 to 23");
+  height = (prompt("Please enter a height from 1 to 23"));
   while (height < 1 || height > 23 || height % 1 != 0){
     height = prompt("Please enter a height from 1 to 23");
   }
+  height = Number(height);
   let amount = height;
   let print = "##";
   let space = "";
+  let result = "";
   while (amount > 0){
     for(let i = 0; i < amount - 1; i++){
       space = space + "\xa0";
     }
-    p.innerHTML += space + print + "<br/>";
+    result += space + print + "<br/>";
     print = print + "#";
     amount = amount - 1;
     space = "";
   }
+  let p = document.getElementById("mario-easy-output");
+  p.innerHTML = "<code>" + result + "</code>";
 
 
   ////////////////////////// DO NOT MODIFY
@@ -82,25 +83,26 @@ function marioAgain() {
   ////////////// DO NOT MODIFY
 
   // WRITE YOUR EXERCISE 2 CODE HERE
-  document.getElementById("mario-hard-output").style.fontFamily = "monospace";
-  let p = document.getElementById("mario-hard-output");
-  p.innerHTML = "";
   height = prompt("Please enter a height from 1 to 23");
   while (height < 1 || height > 23 || height % 1 != 0){
     height = prompt("Please enter a height from 1 to 23");
   }
+  height = Number(height);
   let amount = height;
   let print = "##";
   let space = "";
+  let result = "";
   while (amount > 0){
     for(let i = 0; i < amount - 1; i++){
       space = space + "\xa0";
     }
-    p.innerHTML += space + print + "\xa0\xa0" + print + "<br/>";
+    result += space + print + "\xa0\xa0" + print + "<br/>";
     print = print + "#";
     amount = amount - 1;
     space = "";
   }
+  let p = document.getElementById("mario-hard-output")
+  p.innerHTML = "<code>" + result + "</code>";
   //////////////////////////////// DO NOT MODIFY
   check('mario-again', height); // DO NOT MODIFY
   //////////////////////////////// DO NOT MODIFY
@@ -255,20 +257,21 @@ function hurricane() {
   while (windspeed < 0 || windspeed % 1 !=0){
     windspeed = prompt("Enter a hurricane windspeed to see what category it's in.")
   }
+  windspeed = Number(windspeed);
   if(windspeed >= 157){
-    p.innerHTML = "That's a category 5!"
+    p.innerHTML = "Category 5 Hurricane."
   }else if (windspeed >= 130 && windspeed <= 156){
-    p.innerHTML = "That's a category 4."
+    p.innerHTML = "Category 4 Hurricane."
   }else if (windspeed >= 111 && windspeed <= 129){
-    p.innerHTML = "That's a category 3."
+    p.innerHTML = "Category 3 Hurricane."
   }else if (windspeed >= 96 && windspeed <= 110){
-    p.innerHTML = "That's a category 2."
+    p.innerHTML = "Category 2 Hurricane."
   }else if (windspeed >= 74 && windspeed <= 95){
-    p.innerHTML = "That's a category 1."
+    p.innerHTML = "Category 1 Hurricane."
   }else if (windspeed >= 39 && windspeed <= 73){
-    p.innerHTML = "That's a mere tropical storm."
+    p.innerHTML = "Tropical Storm."
   }else{
-    p.innerHTML = "No hurricane here, that's just regular ol' wind."
+    p.innerHTML = "The skies are calm..."
   }
   ///////////////////////////////// DO NOT MODIFY
   check('hurricane', windspeed); // DO NOT MODIFY
@@ -314,50 +317,55 @@ function gymnastics() {
    */
    let score1=prompt("Please enter your first score");
    while(score1 > 10 || score1<1 || score1 / 1 != score1){
-     score1 = prompt("Please reenter your first score. Remember, it must be from 1 to 10.")
+     score1 = prompt("Please reenter your first score. Remember, it must be from 1 to 10.");
    }
    let score2 = prompt("Please enter your second score");
    while(score2 > 10 || score2 < 1 || score2 / 1 != score2){
-     score2 = prompt("Please reenter your second score. Remember, it must be from 1 to 10.")
+     score2 = prompt("Please reenter your second score. Remember, it must be from 1 to 10.");
    }
    let score3 = prompt("Please enter your third score");
    while(score3 > 10 || score3 < 1 || score3 / 1 != score3){
-     score3 = prompt("Please reenter your third score. Remember, it must be from 1 to 10.")
+     score3 = prompt("Please reenter your third score. Remember, it must be from 1 to 10.");
    }
    let score4 = prompt("Please enter your fourth score");
    while(score4 > 10 || score4 < 1 || score4 / 1 != score4){
-     score4 = prompt("Please reenter your fourth score. Remember, it must be from 1 to 10.")
+     score4 = prompt("Please reenter your fourth score. Remember, it must be from 1 to 10.");
    }
    let score5 = prompt("Please enter your fifth score");
    while(score5 > 10 || score5 < 1 || score5 / 1 != score5){
-     score5 = prompt("Please reenter your fifth score. Remember, it must be from 1 to 10.")
+     score5 = prompt("Please reenter your fifth score. Remember, it must be from 1 to 10.");
    }
    let score6 = prompt("Please enter your sixth score");
    while(score6 > 10 || score6 < 1 || score6 / 1 != score6){
-     score6 = prompt("Please reenter your sixth score. Remember, it must be from 1 to 10.")
+     score6 = prompt("Please reenter your sixth score. Remember, it must be from 1 to 10.");
    }
+   score1 = Number(score1);
+   score2 = Number(score2);
+   score3 = Number(score3);
+   score4 = Number(score4);
+   score5 = Number(score5);
+   score6 = Number(score6);
    scores.push(score1);
    scores.push(score2);
    scores.push(score3);
    scores.push(score4);
    scores.push(score5);
    scores.push(score6);
-   total = Number(scores[0]) + Number(scores[1]) + Number(scores[2]) + Number(scores[3]) + Number(scores[4]) + Number(scores[5]);
-   let i = 0;
+   total = scores[0] + scores[1] + scores[2] + scores[3] + scores[4] + scores[5];
    let maxScore = 0;
    let minScore = 10;
-   while(i < scores.length){
-     if(Number(scores[i]) > maxScore){
+   for(let i = 0; i < scores.length; i++){
+     if(scores[i] > maxScore){
        maxScore = scores[i];
      }
-     if(Number(scores[i]) < minScore){
+     if(scores[i] < minScore){
        minScore = scores[i];
      }
-     i++;
    }
+
    let p = document.getElementById("gymnastics-output");
    let average = (total - maxScore - minScore) / 4;
-   p.innerHTML = "discarded: " + maxScore + ", " + minScore + "<br/>" + "average: " + average.toFixed(1);
+   p.innerHTML = "Discarded: " + minScore + ", " + maxScore + "<br/>" + "Score: " + average.toFixed(2);
   /////////////////////////////// DO NOT MODIFY
   check('gymnastics', scores); // DO NOT MODIFY
   /////////////////////////////// DO NOT MODIFY
