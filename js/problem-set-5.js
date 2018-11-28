@@ -155,7 +155,22 @@ function credit() {
   //////////// DO NOT MODIFY
 
   // WRITE YOUR EXERCISE 3 CODE HERE
+  card = prompt("Please type in a credit card number");
+  let p = document.getElementById("credit-output")
+  let cardNum = card;
+  let cardSum;
+  for(let i = cardNum.length-1; i >= 0; i--;){
+    if(i%2=0){
 
+    }
+  }
+  if (cardNum[1] == "4" || cardNum[1] == "7" && cardNum.length == 15 && cardNum[0] == "3"){
+    p.innerHTML = "<img src="../images/amex.png">"
+  }else if (cardNum[0] == "5" && cardNum[1]>="1" && cardNum[1]<="5" && cardNum.length == 16){
+    p.innerHTML = "<img src="../images/mastercard.png">"
+  }else if (cardNum[0] == "4" && cardNum.length == 13 || cardNum.length == 16){
+    p.innerHTML = "<img src="../images/visa.png">"
+  }
   /*
    * NOTE: After reading in the card number and storing it in the 'card'
    *       variable, do not modify it. If you find it necessary to manipulate
@@ -424,7 +439,7 @@ function reportCard() {
      testGrade=Number(prompt("Please enter your test grade. Type '-1' to signify that you have no more grades to enter."));
      if(testGrade!=Number("-1")){
        while(testGrade > 100 || testGrade < 0){
-         testGrade=Number(prompt("Please reenter your test grade. Remember, it must be on a scale from 1 to 100. Type '-1' to signify that you have no more grades to enter."))
+         testGrade=Number(prompt("Please reenter your test grade. Remember, it must be on a scale from 1 to 100."))
        }
        tests++;
        testTotal+=testGrade;
@@ -434,7 +449,7 @@ function reportCard() {
      quizGrade=Number(prompt("Please enter your quiz grade. Type '-1' to signify that you have no more grades to enter."));
      if(quizGrade!=Number("-1")){
        while(quizGrade > 100 || quizGrade < 0){
-         quizGrade=Number(prompt("Please reenter your quiz grade. Remember, it must be on a scale from 1 to 100. Type '-1' to signify that you have no more grades to enter."))
+         quizGrade=Number(prompt("Please reenter your quiz grade. Remember, it must be on a scale from 1 to 100."))
        }
        quizzes++;
        quizTotal+=quizGrade;
@@ -444,7 +459,7 @@ function reportCard() {
      homeworkGrade=Number(prompt("Please enter your homework grade. Type '-1' to signify that you have no more grades to enter."));
      if(homeworkGrade!=Number("-1")){
        while(homeworkGrade > 100 || homeworkGrade < 0){
-         homeworkGrade=Number(prompt("Please reenter your homework grade. Remember, it must be on a scale from 1 to 100. Type '-1' to signify that you have no more grades to enter."))
+         homeworkGrade=Number(prompt("Please reenter your homework grade. Remember, it must be on a scale from 1 to 100."))
        }
        homeworks++;
        homeworkTotal+=homeworkGrade;
