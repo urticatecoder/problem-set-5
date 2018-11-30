@@ -47,8 +47,6 @@ function mario() {
   }
   let p = document.getElementById("mario-easy-output");
   p.innerHTML = "<code>" + result + "</code>";
-
-
   ////////////////////////// DO NOT MODIFY
   check('mario', height); // DO NOT MODIFY
   ////////////////////////// DO NOT MODIFY
@@ -155,22 +153,36 @@ function credit() {
   //////////// DO NOT MODIFY
 
   // WRITE YOUR EXERCISE 3 CODE HERE
-  card = prompt("Please type in a credit card number");
-  let p = document.getElementById("credit-output")
-  let cardNum = card;
-  let cardSum;
-  for(let i = cardNum.length-1; i >= 0; i--;){
-    if(i%2=0){
-
+  card=prompt("Please enter a credit card number");
+  let p = document.getElementById("credit-output");
+  let sum = "";
+  let charAtIndex;
+  while(sum % 10 != 0){
+    sum = String(sum);
+    for(let i = card.length-2; i >= 0; i -= 2){
+      if(Number(card[i])*2 > 9){
+        charAtIndex =String(Number(card[i])*2);
+        sum += String(Number(charAtIndex[0]) + Number(charAtIndex[1]));
+      }else{
+        sum+=String(Number(card[i])*2);
+      }
     }
+    for(i = card.length-1; i >= 0; i -= 2){
+      sum += card[i];
+    }
+    sum=Number(sum);
   }
-  if (cardNum[1] == "4" || cardNum[1] == "7" && cardNum.length == 15 && cardNum[0] == "3"){
-    p.innerHTML = "<img src="../images/amex.png">"
-  }else if (cardNum[0] == "5" && cardNum[1]>="1" && cardNum[1]<="5" && cardNum.length == 16){
-    p.innerHTML = "<img src="../images/mastercard.png">"
-  }else if (cardNum[0] == "4" && cardNum.length == 13 || cardNum.length == 16){
-    p.innerHTML = "<img src="../images/visa.png">"
+  if(card.length == 15 && card[0] == "3" && card[1] == "4" || card[1]=="7"){
+    p.innerHTML = "<img src='images/amex.png'>";
+  }else if(card.length == 16 && card[0] == "5" && card[1]>="1" && card[1]<="5"){
+    p.innerHTML = "<img src='images/mastercard.png'>";
+  }else if(card[0] == "4" && card.length == 13 || card.length == 16){
+    p.innerHTML = "<img src='images/visa.png'>";
+  }else{
+    p.innerHTML = "<img src='images/invalid.png'>";
   }
+  card = Number(card);
+
   /*
    * NOTE: After reading in the card number and storing it in the 'card'
    *       variable, do not modify it. If you find it necessary to manipulate
@@ -377,7 +389,6 @@ function gymnastics() {
        minScore = scores[i];
      }
    }
-
    let p = document.getElementById("gymnastics-output");
    let average = (total - maxScore - minScore) / 4;
    p.innerHTML = "Discarded: " + minScore + ", " + maxScore + "<br/>" + "Score: " + average.toFixed(2);
@@ -408,7 +419,6 @@ function gymnastics() {
  */
 
 function reportCard() {
-
   ///////////////////////// DO NOT MODIFY
   let testTotal = 0; ////// DO NOT MODIFY
   let quizTotal = 0; ////// DO NOT MODIFY
@@ -468,9 +478,6 @@ function reportCard() {
    let p = document.getElementById("report-card-output");
    let average = (((testTotal/tests)*.6) + ((quizTotal/quizzes)*.3) + ((homeworkTotal/homeworks)*.1)).toFixed(2);
    p.innerHTML = "Tests: " + (testTotal/tests).toFixed(2) + "<br/>" + "Quizzes: " + (quizTotal/quizzes).toFixed(2) + "<br/>" + "Homework: " + (homeworkTotal/homeworks).toFixed(2) + "<br/>" + "Grade: " + average;
-
-
-
   /////////////////////// DO NOT MODIFY
   check('report-card', // DO NOT MODIFY
     testTotal, ////////// DO NOT MODIFY
