@@ -155,28 +155,24 @@ function credit() {
   // WRITE YOUR EXERCISE 3 CODE HERE
   card=prompt("Please enter a credit card number");
   let p = document.getElementById("credit-output");
-  let sum = "";
+  let sum = 0;
   let charAtIndex;
-  while(sum % 10 != 0){
-    sum = String(sum);
     for(let i = card.length-2; i >= 0; i -= 2){
-      if(Number(card[i])*2 > 9){
-        charAtIndex =String(Number(card[i])*2);
-        sum += String(Number(charAtIndex[0]) + Number(charAtIndex[1]));
+      if((Number(card[i]))*2 > 9){
+        charAtIndex = String(Number(card[i])*2);
+        sum += Number(charAtIndex[0]) + Number(charAtIndex[1]);
       }else{
-        sum+=String(Number(card[i])*2);
+        sum += Number(card[i])*2;
       }
     }
     for(i = card.length-1; i >= 0; i -= 2){
-      sum += card[i];
+      sum += Number(card[i]);
     }
-    sum=Number(sum);
-  }
-  if(card.length == 15 && card[0] == "3" && card[1] == "4" || card[1]=="7"){
+  if(card.length == 15 && card[0] == "3" && card[1] == "4" && sum%10==0 || card.length == 15 && card[0] == "3" && card[1]=="7" && sum%10==0){
     p.innerHTML = "<img src='images/amex.png'>";
-  }else if(card.length == 16 && card[0] == "5" && card[1]>="1" && card[1]<="5"){
+  }else if(card.length == 16 && card[0] == "5" && card[1]>="1" && card[1]<="5" && sum%10==0){
     p.innerHTML = "<img src='images/mastercard.png'>";
-  }else if(card[0] == "4" && card.length == 13 || card.length == 16){
+  }else if(card[0] == "4" && card.length == 13 && sum%10 == 0 || card[0] == "4" && card.length == 16 && sum % 10 == 0){
     p.innerHTML = "<img src='images/visa.png'>";
   }else{
     p.innerHTML = "<img src='images/invalid.png'>";
