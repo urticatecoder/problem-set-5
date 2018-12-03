@@ -154,6 +154,9 @@ function credit() {
 
   // WRITE YOUR EXERCISE 3 CODE HERE
   card=prompt("Please enter a credit card number");
+  while(card%1!=0){
+    card=prompt("Please enter a credit card number")
+  }
   let p = document.getElementById("credit-output");
   let sum = 0;
   let charAtIndex;
